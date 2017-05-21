@@ -1,1 +1,84 @@
+/* author Brad Taylor*/
+html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
+html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+html,body{font-family: Arial, Helvetica, sans-serif;background:#eeeeee;font-size:1em;width:100%;color:#616161;margin:0}html{overflow-x:hidden}
+a{color:inherit;text-decoration:none;}
+.width{position: absolute;z-index:99999;}
+.bgDGrey{background:#616161;color:#fff;}
+.bgDGrey.hover:hover{background:#fcfcfc;color:#616161;}
+.bgLGrey{background:#f2f2f2;color:#616161;}
+.bgLGreen{background:#e7e7df;color:#616161;}
+.bgDBlue{background:#2580aa;color:#fff;}
+.bgOrange{background:#db7f55;color:#fff;}
+.bgGreen{background:#7dc116;color:#fff;}
+.link{cursor:pointer;}
+.textShadowDark{text-shadow:1px 1px 0 #444}
+.textShadowDark2{text-shadow:0 0 1px #444}
+.textShadowLight{text-shadow:1px 1px 0 #fcfcfc}
+.hide{display:none;}
+.clear{clear:both;}
 
+.h10{height:10px;}
+
+.bigBold{
+font-family:"Arial Black", Gadget, sans-serif;
+}
+.fl{float:left;}
+.fr{float:right;}
+.p5{padding:5px;}
+.p10{padding:10px;}
+.p15{padding:15px;}
+.p20{padding:20px;}
+
+
+.centre{
+text-align:center;
+}
+.full{width:100%;}
+.half{width:49.99999%;}
+.third{width:33.33333%;}
+.twothird{width:66.66666%;}
+.threequarter{width:74.99999%;}
+.quarter{width:24.99999%;}
+
+.w100{width:100px;}
+.w150{width:150px;}
+
+
+
+.border{border:solid 1px #ccc;}
+.borderT{border-top:solid 1px #ccc;}
+.borderR{border-right:solid 1px #ccc;}
+.borderB{border-bottom:solid 1px #ccc;}
+.borderL{border-left:solid 1px #ccc;}
+.paddingSmall{padding:3px;}
+.paddingMedium{padding:10px;}
+.paddingLarge{padding:20px;}
+.paddingXLarge{padding:80px;}
+
+input,textarea{
+outline:0;border:1px solid #ccc;padding:10px;border-radius:2px;width:100%;
+}
+input.error{
+background:#eecece;
+}
+input.ok,textarea.ok{
+background:#e3efdd;
+}
+
+.button{cursor:pointer;border-radius:3px;border:3px solid #616161;padding:10px;}
+.button:hover{box-shadow:0 4px 8px 0 rgba(0,0,0,0.2;);}
+#filler{height:61px;}
+#top,#templateRight,#centreData,#templateLeft{background:#ffffff;}
+#top{position:fixed;top: 0;width:100%;height:60px;padding:0 30px;}
+#templateRight{float:left;width:25%;border-left:1px solid #eeeeee;padding:30px;}
+#centreData{float:left;width:60%;padding:20px;}
+#templateLeft{float:left;width:15%;border-right:1px solid #eeeeee;padding:30px;}
+
+
+.menuTop,.menuAbsTop{cursor: pointer;}
+.menuTop{padding:10px;}
+.menuAbsTop{line-height:61px;padding:0 10px;}
+.menuAbsTop:hover{color:#333333;text-decoration: underline;}
+.menuList{float:left;cursor:pointer;width:100%;border-bottom:1px solid #eeeeee;}
+.menuList:hover,.menuList.active{background: #fcfcfc;}
