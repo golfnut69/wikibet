@@ -1,0 +1,26 @@
+
+{{template "top"}}
+<div id="templateLeft">
+
+
+
+  {{range .}}
+  <div class="menuList" id="{{.Id}}">
+  <div class="clear fl list1 p10 link full">{{.Id}}</div>
+  <a href="/sports/id={{.Id}}"><div class="hide clear list2 fl p10 full">{{.Title}}</div></a>
+  </div>
+
+  {{end}}
+
+</div>
+
+
+<div id="centreData">
+{{template "menu"}}
+
+
+</div>
+{{template "right"}}
+
+
+{{template "bottom"}}
