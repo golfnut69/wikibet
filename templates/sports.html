@@ -5,9 +5,9 @@
 
 
   {{range .}}
-  <div class="menuList" id="{{.Id}}">
-  <div class="clear fl list1 p10 link full">{{.Id}}</div>
-  <a href="/sports/id={{.Id}}"><div class="hide clear list2 fl p10 full">{{.Title}}</div></a>
+  <div class="menuList" id="{{.Sportid}}">
+  <div class="clear fl list1 p10 link full">{{.}}</div>
+  <a href="/sports/id={{.Sportid}}"><div class="hide clear list2 fl p10 full">{{.Comp}}</div></a>
   </div>
 
   {{end}}
