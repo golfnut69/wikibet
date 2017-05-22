@@ -1,5 +1,5 @@
 CREATE TABLE `sports` (
-  `sportid` int(2) NOT NULL,
+  `sportid` int(2) PRIMARY KEY AUTOINCREMENT,
   `sport` varchar(20) NOT NULL DEFAULT '',
   `subsport` varchar(20) NOT NULL,
   `periods` int(2) NOT NULL
@@ -109,7 +109,6 @@ INSERT INTO `sports` (`sportid`, `sport`, `subsport`, `periods`) VALUES
 (171, 'Baseball', 'No Pitcher', 9);
 
 ALTER TABLE `sports`
-  ADD PRIMARY KEY (`sportid`),
   ADD KEY `sport` (`sport`);
 
 ALTER TABLE `sports`
@@ -118,7 +117,7 @@ ALTER TABLE `sports`
 
 
 CREATE TABLE `comps` (
-  `compid` int(11) NOT NULL,
+  `compid` int(11)  PRIMARY KEY AUTOINCREMENT,
   `sportid` int(2) NOT NULL,
   `comp` varchar(35) NOT NULL,
   `periods` int(2) NOT NULL
@@ -975,7 +974,6 @@ INSERT INTO `comps` (`compid`, `sportid`, `comp`, `periods`) VALUES
 (1041, 179, 'AFL - Women', 4);
 
 ALTER TABLE `comps`
-  ADD PRIMARY KEY (`compid`),
   ADD KEY `sportid` (`sportid`);
 
 
