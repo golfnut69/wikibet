@@ -1,9 +1,9 @@
-CREATE TABLE `sports` (
-  `sportid` int(2) PRIMARY KEY AUTOINCREMENT,
-  `sport` varchar(20) NOT NULL DEFAULT '',
-  `subsport` varchar(20) NOT NULL,
-  `periods` int(2) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+CREATE TABLE sports (
+sportid int(2) NOT NULL AUTO_INCREMENT,
+sport varchar(20) NOT NULL DEFAULT '',
+subsport varchar(20) NOT NULL,
+PRIMARY KEY (sportid)
+);
 
 INSERT INTO `sports` (`sportid`, `sport`, `subsport`, `periods`) VALUES
 (1, 'Australian Rules', '', 4),
@@ -114,14 +114,13 @@ ALTER TABLE `sports`
 ALTER TABLE `sports`
   DROP `periods`;
   
-
-
 CREATE TABLE `comps` (
-  `compid` int(11)  PRIMARY KEY AUTOINCREMENT,
-  `sportid` int(2) NOT NULL,
-  `comp` varchar(35) NOT NULL,
-  `periods` int(2) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+`compid` int(11) NOT NULL AUTO_INCREMENT,
+`sportid` int(2) NOT NULL,
+`comp` varchar(35) NOT NULL,
+`periods` int(2) NOT NULL
+PRIMARY KEY (`compid`)
+);
 
 INSERT INTO `comps` (`compid`, `sportid`, `comp`, `periods`) VALUES
 (1, 1, 'AFL', 4),
