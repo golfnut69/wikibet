@@ -118,7 +118,7 @@ CREATE TABLE `comps` (
 `compid` int(11) NOT NULL AUTO_INCREMENT,
 `sportid` int(2) NOT NULL,
 `comp` varchar(35) NOT NULL,
-`periods` int(2) NOT NULL
+`periods` int(2) NOT NULL,
 PRIMARY KEY (`compid`)
 );
 
