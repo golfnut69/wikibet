@@ -16,13 +16,14 @@ type SportsMarket interface {
 	marketid() int
 }
 
-type User struct {
-	Id    int
-	Title string
+type Sports struct {
+	Comp   string
+	Compid int
 }
 
-var sportid int
+var compid int
 var sport string
+var comp string
 
 func init() {
 	tmpl = template.Must(template.ParseGlob("templates/*.html"))
@@ -79,28 +80,61 @@ func sportsPage(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 	defer db.Close()
-	rows, err := db.Query("SELECT sportid,sport FROM sports")
+	rows, err := db.Query("SELECT compid,sport,comp FROM sports left join comps using (sportid)")
 	if err != nil {
 		panic(err)
 	}
-
-	var users []User
+	//var sportsOnly []string
+	//var sportidsOnly []int
+	sports := make(map[string][]Sports)
+	//var sports []Sports
 	for rows.Next() {
-		rows.Scan(&sportid, &sport)
-		//tRes.Test = username
-		//results = append(results, tRes)
-		users = append(users, User{Id: sportid, Title: sport})
-	}
-	//sports := []string{"Aussie Rules", "Rugby League", "Golf"}
+		rows.Scan(&compid, &sport, &comp)
+		//sports = append(sports, Sports{Sportid: sportid, Sport: sport, Comp: comp})
+		//sportsOnly = append(sportsOnly, sport)
+		//sportidsOnly = append(sportidsOnly, sportid)
+		//sports = append(sports, Sports{Sport: sport, Comp: comp})
+		sports[sport] = append(sports[sport], Sports{comp, compid})
 
-	err = tmpl.ExecuteTemplate(w, "sports.html", users)
+	}
+
+	//sports = map[string][]Sports{"Aussie Rules": {{"AFL", 1}, {"VFL", 2}}, "Rugby League": {{"NRL", 7}, {"SOO", 8}, {"DRL", 9}}}
+	//sports["Aussie Rules"] = append(sports["Aussie Rules"], Sports{"AFL2", 21})
+
+	err = tmpl.ExecuteTemplate(w, "sports.html", sports)
+
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 }
+func UniqueStrings(input []string) []string {
+	u := make([]string, 0, len(input))
+	m := make(map[string]bool)
 
+	for _, val := range input {
+		if _, ok := m[val]; !ok {
+			m[val] = true
+			u = append(u, val)
+		}
+	}
+
+	return u
+}
+func UniqueInts(input []int) []int {
+	u := make([]int, 0, len(input))
+	m := make(map[int]bool)
+
+	for _, val := range input {
+		if _, ok := m[val]; !ok {
+			m[val] = true
+			u = append(u, val)
+		}
+	}
+
+	return u
+}
 func main() {
 	r := mux.NewRouter()
 	//for s := range animals {
@@ -125,6 +159,6 @@ func main() {
 	r.HandleFunc("/racing", racingPage)
 	r.HandleFunc("/", homePage)
 	http.Handle("/", r)
-	http.ListenAndServe(":9071", nil)
+	http.ListenAndServe(":8081", nil)
 
 }
