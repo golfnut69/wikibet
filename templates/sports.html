@@ -1,19 +1,18 @@
-
 {{template "top"}}
 <div id="templateLeft">
 
 
+  {{range $index, $element := .}}
+  <div class="menuList">
+  <div class="clear fl list1 p10 link full">{{$index}}</div>
 
-  {{range .}}
-  <div class="menuList" id="{{.Sportid}}">
-  <div class="clear fl list1 p10 link full">{{.}}</div>
-  <a href="/sports/id={{.Sportid}}"><div class="hide clear list2 fl p10 full">{{.Comp}}</div></a>
-  </div>
-
+  {{range $element}}
+  <a href="/sports/id={{.Compid}}"><div class="hide clear list2 fl p10 full">{{.Comp}}</div></a>
   {{end}}
 
-</div>
-
+  </div>
+  {{end}}
+  </div>
 
 <div id="centreData">
 {{template "menu"}}
